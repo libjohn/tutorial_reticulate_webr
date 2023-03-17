@@ -1,0 +1,14 @@
+{
+  "hash": "e0a971d1f48fd5c1565e5ec36008e068",
+  "result": {
+    "markdown": "---\ntitle: \"webr_coatless_with_quarto\"\nsubtitle: WebR in Quarto HTML Documents\nformat: html\nfilters:\n  - webr\n---\n\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(fs)\nif(!file_exists(\"_site/webr-worker.js\")) {\nfs::file_copy(\"webr-worker.js\", \"_site/webr-worker.js\", overwrite = TRUE)\nfs::file_copy(\"webr-serviceworker.js\", \"_site/webr-serviceworker.js\", overwrite = TRUE)\n}\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n# available.packages(repos=\"https://repo.r-wasm.org/\", type=\"source\")\n```\n:::\n\n::: {.cell}\n\n```{.webr .cell-code}\nfit = lm(mpg ~ am, data = mtcars)\nsummary(fit)\n# broom::tidy(fit)\nmtcars\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "hash": "a37719b0c7c888f6992713c0ce62e4f5",
+  "result": {
+    "markdown": "---\ntitle: \"python\"\n---\n\n\nfrom: https://rstudio.github.io/reticulate/\n\n## notes\n\nin terminal:\n\n        conda install pandas\n        conda install jupyter\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(reticulate)\nlibrary(tidyverse)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n# install_miniconda()\nuse_miniconda(condaenv = \"C:/Users/jrl/AppData/Local/r-miniconda\", required = TRUE)\n```\n:::\n\n\n## example\n\n\n::: {.cell}\n\n```{.python .cell-code}\nimport pandas\nflights = pandas.read_csv(\"star_small.csv\")\nflights = flights[flights['mass'] < 500]\n# flights = flights[flights['dest'] == \"ORD\"]\n# flights = [['carrier', 'dep_delay', 'arr_delay']]\n# flights = flights.dropna()\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n# library(ggplot2)\nggplot(py$flights, aes(height, mass)) +\n  geom_point() +\n  geom_jitter()\n```\n\n::: {.cell-output-display}\n![](python_files/figure-html/ggplot-from-pandas-wrangle-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\ndplyr::starwars %>% \n  select(name:mass) %>% \n  write_csv(\"star_small.csv\")\n```\n:::\n",
+    "supporting": [
+      "python_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

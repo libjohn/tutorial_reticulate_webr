@@ -1,0 +1,32 @@
+---
+title: "webr_coatless_with_quarto"
+subtitle: WebR in Quarto HTML Documents
+format: html
+filters:
+  - webr
+---
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+#| label: ensure-js-libraries-exists-in-scracth-webdir
+library(fs)
+if(!file_exists("_site/webr-worker.js")) {
+fs::file_copy("webr-worker.js", "_site/webr-worker.js", overwrite = TRUE)
+fs::file_copy("webr-serviceworker.js", "_site/webr-serviceworker.js", overwrite = TRUE)
+}
+```
+
+```{r}
+#| label: where-to-find-webR-R-libraries
+# available.packages(repos="https://repo.r-wasm.org/", type="source")
+```
+
+```{webr}
+fit = lm(mpg ~ am, data = mtcars)
+summary(fit)
+# broom::tidy(fit)
+mtcars
+```

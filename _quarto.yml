@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "webr_coatless_with_quarto"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Example webR
+      - href: python.qmd
+        text: example needs reticulate::python
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+

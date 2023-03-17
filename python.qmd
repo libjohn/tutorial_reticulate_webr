@@ -1,0 +1,54 @@
+---
+title: "python"
+---
+
+from: https://rstudio.github.io/reticulate/
+
+## notes
+
+in terminal:
+
+        conda install pandas
+        conda install jupyter
+
+```{r}
+#| label: load-r-libraries
+#| warning: false
+#| message: false
+library(reticulate)
+library(tidyverse)
+```
+
+```{r}
+#| label: identify-conda-env
+# install_miniconda()
+use_miniconda(condaenv = "C:/Users/jrl/AppData/Local/r-miniconda", required = TRUE)
+```
+
+## example
+
+```{python}
+#| label: example-pandas-code
+import pandas
+flights = pandas.read_csv("star_small.csv")
+flights = flights[flights['mass'] < 500]
+# flights = flights[flights['dest'] == "ORD"]
+# flights = [['carrier', 'dep_delay', 'arr_delay']]
+# flights = flights.dropna()
+```
+
+```{r}
+#| label: ggplot-from-pandas-wrangle
+# library(ggplot2)
+ggplot(py$flights, aes(height, mass)) +
+  geom_point() +
+  geom_jitter()
+```
+
+```{r, eval=FALSE}
+#| label: nothing-does-not-run
+library(tidyverse)
+dplyr::starwars %>% 
+  select(name:mass) %>% 
+  write_csv("star_small.csv")
+```
